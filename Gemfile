@@ -53,3 +53,5 @@ gem "active_model_serializers",
     branch: '0-10-stable'
 
 gem 'pry-byebug'
+
+gem 'faker'
