@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.login {
+  background-image: url("https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg");
+  z-index: -10;
+  background-color: #cccccc;
+  /* max-height: fit-content */
+}
