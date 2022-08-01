@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import Button from '@mui/material/Button'
-
+import { Button, TextField } from '@mui/material'
+import { Box } from '@mui/system';
 
 function Login({user, onLogin, setIsLoggedIn}) {
   const history = useHistory()
@@ -20,63 +20,51 @@ function Login({user, onLogin, setIsLoggedIn}) {
     }))
   }
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
-        history.push("/games")
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    })
-    setFormData({
-      username: "",
-      password: "",
-    });
+    console.log(e, 'hello')
+    // fetch("/login", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // }).then((r) => {
+    //   if (r.ok) {
+    //     r.json().then((user) => onLogin(user));
+    //     setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+    //     history.push("/home")
+    //   } else {
+    //     r.json().then((err) => setErrors(err.errors));
+    //   }
+    // })
+    // setFormData({
+    //   username: "",
+    //   password: "",
+    // });
   }
 
   return (
-    <div className="login">
-      <div>
-        <br></br>
-        <h2>placeholder header</h2>
-        <br></br>
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
+    <div>
+      <div className="formTitleLink3">
+      <h1>Miles Unlimited</h1>
+        <Box
+          component="form"
+          x={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off" 
+          onSubmit={handleSubmit}
+        >
           <div>
-            <label>Username</label>
-            <input
-              type="username"
-              id="username"
-              placeholder="Enter your username"
-              name="username"
-              value={formData.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />
+            <TextField id="username" label="Username" variant="filled" required/>
+            <br/>
+            <TextField id="password" label="Password" type="password" variant="filled" required/>
           </div>
           <div>
           <br></br>
-            <Button variant="contained">Sign In</Button> <br></br>
+            <Button onSubmit={handleSubmit} variant="contained">Sign In</Button> <br></br>
             <br></br>
             Need a Miles Unlimited account?&nbsp;
             <Link to="/">
@@ -90,7 +78,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
               ))}
             </>
           </div>
-        </form>
+        </Box>
       </div>
     </div>
   );

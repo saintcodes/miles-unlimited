@@ -43,3 +43,23 @@
   background-color: #cccccc;
   /* max-height: fit-content */
 }
+
+.formTitleLink3 {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  color: #12130f;
+  font-weight: 1000;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  background-color: white;
+  border-color: red;
+  border-bottom: 1px solid red;
+  border: thin;
+  border: 6px;
+  padding: 8px 13px;
+  display: inline-block;
+  margin: 0 50px;
+  padding-bottom: 1px;
+}

@@ -22,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="login">
+      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
         <Button color="secondary" variant="outlined">LogOut</Button>
         {user && (
           <Nav 
@@ -34,7 +35,6 @@ function App() {
         )}
         <Switch>
           <Route path="/">
-            <h1>Miles Unlimited</h1>
             <Login 
               user={user}
               onLogin={handleLogIn}
@@ -70,6 +70,7 @@ function App() {
               isLoggedIn={isLoggedIn}/>
           </Route>
         </Switch>
+      <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
       </div>
       <br></br>
       <div className="login"></div>
