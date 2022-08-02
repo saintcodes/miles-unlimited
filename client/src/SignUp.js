@@ -1,34 +1,37 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { Button, TextField } from '@mui/material'
-import { Box } from '@mui/system';
+import  { Button, TextField} from '@mui/material'
+import { Box } from '@mui/system'
 
-function Login({user, onLogin, setIsLoggedIn}) {
+function SignUp({user, onLogin, setIsLoggedIn}) {
   const history = useHistory()
-  const [formData, setFormData] = useState({
+  const [signUpForm, setSignUpForm] = useState({
     username: "",
-    password: ""
-  });
+    password: "",
+    hasAgreed: false
+  })
   const [errors, setErrors] = useState([])
 
   const handleChange = (e) => {
     console.log('hello')
-    const {name, value} = e.target
-    setFormData((formData) => ({...formData,
+    let target = e.target
+    let value = target.type === 'checkbox' ? target.checked : target.value
+    let name = target.name
+    setSignUpForm((signUpForm) => ({...signUpForm,
       [name]: value
     }))
-    console.log(formData)
+    console.log(signUpForm)
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
-    fetch("/login", {
+    console.log(signUpForm)
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(signUpForm),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
@@ -38,7 +41,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
         r.json().then((err) => setErrors(err.errors));
       }
     })
-    setFormData({
+    setSignUpForm({
       username: "",
       password: "",
     });
@@ -46,8 +49,11 @@ function Login({user, onLogin, setIsLoggedIn}) {
 
   return (
     <div>
-      <div className="formTitleLink3" style={{backgroundColor: 'white', opacity: 0.9}}>
-      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      <div 
+        className="formTitleLink4" 
+        style={{backgroundColor: 'smoke', opacity: 0.9}}
+      >
+      <h1>Miles Unlimited</h1>
         <Box
           component="form"
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
@@ -59,7 +65,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
             name="username" 
             label="Username" 
             variant="filled" 
-            value={formData.username} 
+            value={signUpForm.username} 
             onChange={handleChange} 
             required
           />
@@ -69,7 +75,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
             label="Password" 
             type="password" 
             variant="filled" 
-            value={formData.password} 
+            value={signUpForm.password} 
             onChange={handleChange} 
             required
           />
@@ -80,12 +86,12 @@ function Login({user, onLogin, setIsLoggedIn}) {
             ))}
           </div>
             <br></br>
-          <Button type="submit" variant="contained">Sign In</Button> <br></br>
+          <Button type="submit" variant="contained">Sign Up</Button> <br></br>
         <div>
             <br></br>
-          Need a Miles Unlimited account?&nbsp;
-          <a href="/sign-up">
-            Create one here
+          Already have a Miles Unlimited account?&nbsp;
+          <a href="/">
+            Log in here!
           </a>
           <br></br>
           <br></br>
@@ -96,4 +102,4 @@ function Login({user, onLogin, setIsLoggedIn}) {
   );
 }
 
-export default Login
+export default SignUp
