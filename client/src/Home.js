@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ImageList, ImageListItem, ImageListItemBar, ListSubheader, IconButton } from '@mui/material'
-import { InfoIcon } from '@mui/icons-material'
+// import { InfoIcon } from '@mui/icons-material'
 
 function Home() {
   const [posts, setPosts] = useState([])
@@ -32,7 +32,7 @@ function Home() {
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                 aria-label={`info about ${post.title}`}
               >
-                <InfoIcon />
+                {/* <InfoIcon /> */}
               </IconButton>
             }
           />

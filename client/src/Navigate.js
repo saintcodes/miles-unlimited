@@ -19,37 +19,37 @@ function Navigate({user, setUser}) {
   }
 
   return (
-    <Container className="navbar" style={{backgroundColor: "white"}}>
+    <Container className="navigation-container">
       {user && (
-        <Nav>
+        <Nav id='nav-bar'>
           <br></br>
             <span>
-              Welcome back, {user.username}!
+              Welcome back, <strong><em>{user.username}!</em></strong>
             </span> 
           <br></br>
-          <Nav.Link href="/home">
+          <ul><Nav.Link href="/home">
             HOME
           {/* additional functionality by continent/region via drop down menu */}
-          </Nav.Link>
+          </Nav.Link></ul>
           <br/>
-          <Nav.Link href="/about">
+          <ul><Nav.Link href="/about">
             ABOUT
-          </Nav.Link>
+          </Nav.Link></ul>
           <br/>
-          <Nav.Link href="/new">
+          <ul><Nav.Link href="/new">
             NEW ENTRY
-          </Nav.Link>
+          </Nav.Link></ul>
           <br/>
-          <Nav.Link href="/my-profile">
+          <ul><Nav.Link href="/my-profile">
             PROFILE
-          </Nav.Link>
+          </Nav.Link></ul>
           <br/>
-          <Nav.Link href="/" onClick={handleLogout}>
+          <ul><Nav.Link href="/" onClick={handleLogout}>
             LOGOUT
-          </Nav.Link>
+          </Nav.Link></ul>
         </Nav>
       )}
-    </Container>
+     </Container>
   )
 }
 
