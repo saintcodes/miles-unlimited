@@ -12,12 +12,10 @@ function Navigate({user, setUser}) {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUser(null);
+        setUser({});
         history.push("/");
       }
     });
-    setUser(null)
-    // setIsLoggedIn((isLoggedIn) => !isLoggedIn)
   }
 
   return (
@@ -42,7 +40,7 @@ function Navigate({user, setUser}) {
             NEW ENTRY
           </Nav.Link>
           <br/>
-          <Nav.Link href="/my-sprofile">
+          <Nav.Link href="/my-profile">
             PROFILE
           </Nav.Link>
           <br/>

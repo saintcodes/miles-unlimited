@@ -47,7 +47,9 @@ function Login({user, onLogin}) {
   return (
     <div>
       <div className="formTitleLink3" style={{backgroundColor: 'white', opacity: 0.9}}>
-      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </h1>
         <Box
           component="form"
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
