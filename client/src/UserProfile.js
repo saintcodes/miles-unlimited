@@ -8,8 +8,8 @@ function UserProfile({user, setUser}) {
   console.log(user)
   // const [canvasState, setCavnasState] = useState()
   const [formData, setFormData] = useState({
-    username: "",
-    password: ""
+    username: user.username,
+    password: user.password
   });
 
   // console.log("user line 13", user)
@@ -46,8 +46,12 @@ function UserProfile({user, setUser}) {
     // });
   }
 
+  const handleUsernameUpdate = (e) => {
+    e.preventDefault()
+    console.log(e)
+  }
   return (
-    <div>
+    <div className="formTitleLink5">
       {/* <h1>{console.log(user)}</h1> */}
       <h1>{user.username}</h1>
       <Box
@@ -55,7 +59,7 @@ function UserProfile({user, setUser}) {
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
           noValidate
           autoComplete="off"
-          onSubmit={handleSubmit}
+          onSubmit={handleUsernameUpdate}
         >
           <TextField 
             name="username" 
@@ -65,25 +69,12 @@ function UserProfile({user, setUser}) {
             onChange={handleChange} 
             required
           />
-            <br/>
-          <TextField 
-            name="password" 
-            label="Password" 
-            type="password" 
-            variant="filled" 
-            value={formData.password} 
-            onChange={handleChange} 
-            required
-          />
             <br></br>
             <br></br>
-          <Button type="submit" variant="contained">Sign In</Button> 
-            <br></br>
-        <div>
+          <Button color="error" type="submit" variant="outlined">Change Username</Button> 
             <br></br>
             <br></br>
             <br></br>
-        </div>
        </Box>
     </div>
   )

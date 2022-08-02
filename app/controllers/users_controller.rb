@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user = User.update!(user_params)
+    render json: user, status: :accepted
+  end
+  
   def show
     user = User.find_by(id: session[:user_id])
     if user
