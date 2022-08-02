@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
 import { Box } from '@mui/system';
 
-function Login({user, onLogin, setIsLoggedIn}) {
+function Login({user, onLogin}) {
   const history = useHistory()
   const [formData, setFormData] = useState({
     username: "",
@@ -32,7 +32,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        // setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         history.push("/home")
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -47,7 +47,9 @@ function Login({user, onLogin, setIsLoggedIn}) {
   return (
     <div>
       <div className="formTitleLink3" style={{backgroundColor: 'white', opacity: 0.9}}>
-      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </h1>
         <Box
           component="form"
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}

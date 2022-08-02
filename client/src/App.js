@@ -1,19 +1,16 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css'
-import Button from '@mui/material/Button'
 import Login from './Login'
 import Navigate from './Navigate'
 import About from './About'
 import NewEntry from './NewEntry'
-import Profile from './Profile'
+import UserProfile from './UserProfile'
 import Home from './Home'
 import SignUp from './SignUp'
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [welcome, setWelcome] = useState(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -25,75 +22,67 @@ function App() {
 
   const handleLogIn = (user) => {
     setUser(user);
-    setWelcome((welcome) => !welcome);
   }
   
   console.log("user:", user)
-  console.log("welcome:", welcome)
-  console.log("isLoggedIn", isLoggedIn)
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <div className="login">
       <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
-        {user && (
+        {user && user.username ?
           <Navigate
-            isLoggedIn={isLoggedIn} 
-            setIsLoggedIn={setIsLoggedIn} 
-            welcome={welcome} 
             user={user} 
             setUser={setUser}
-          />
-        )}
+          /> : <></>
+        }
         <Switch>
-          <Route path="/sign-up">
+          <Route exact path="/sign-up">
             <SignUp 
-              user={user}
               onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              user={user}
+              
+            />
           </Route>
-          <Route path="/about">
+          <Route exact path="/about">
             <About 
               user={user}
-              onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              setUser={setUser}
+              
+            />
           </Route>
-          <Route path="/new">
+          <Route exact path="/new">
             <NewEntry 
               user={user}
-              onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              setUser={setUser}
+
+            />
           </Route>
-          <Route path="/profile">
-            <Profile 
+          <Route exact path="/my-profile">
+            <UserProfile 
               user={user}
-              onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              setUser={setUser}
+              
+            />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home 
               user={user}
-              onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              setUser={setUser}
+
+            />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Login 
-              user={user}
               onLogin={handleLogIn}
-              setIsLoggedIn={setIsLoggedIn}
-              isLoggedIn={isLoggedIn}/>
+              
+            />
           </Route>
         </Switch>
-      <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg" />
-      </div>
+      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg" />
       <br></br>
-      <div className="login"></div>
-    </BrowserRouter>
+      </div>
+      // {/* </BrowserRouter> */}
   );
 }
 
