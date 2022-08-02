@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
 import { Box } from '@mui/system';
 
-function Login({user, onLogin, setIsLoggedIn}) {
+function Login({user, onLogin}) {
   const history = useHistory()
   const [formData, setFormData] = useState({
     username: "",
@@ -32,7 +32,7 @@ function Login({user, onLogin, setIsLoggedIn}) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        setIsLoggedIn((isLoggedIn) => !isLoggedIn);
+        // setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         history.push("/home")
       } else {
         r.json().then((err) => setErrors(err.errors));

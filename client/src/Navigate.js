@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 
-function Navigate({user, setUser, setIsLoggedIn}) {
+function Navigate({user, setUser}) {
   const history = useHistory()
 
   function handleLogout() {
@@ -17,7 +17,7 @@ function Navigate({user, setUser, setIsLoggedIn}) {
       }
     });
     setUser(null)
-    setIsLoggedIn((isLoggedIn) => !isLoggedIn)
+    // setIsLoggedIn((isLoggedIn) => !isLoggedIn)
   }
 
   return (
@@ -42,7 +42,7 @@ function Navigate({user, setUser, setIsLoggedIn}) {
             NEW ENTRY
           </Nav.Link>
           <br/>
-          <Nav.Link href="/profile">
+          <Nav.Link href="/my-sprofile">
             PROFILE
           </Nav.Link>
           <br/>
