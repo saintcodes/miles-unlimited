@@ -4,6 +4,18 @@ import { ImageList, ImageListItem, ImageListItemBar, ListSubheader, IconButton }
 
 function Home() {
   const [posts, setPosts] = useState([])
+//   const images = [
+//     'travel_pics/travel1.jpeg', 
+//     'travel_pics/travel2.jpeg', 
+//     'travel_pics/travel3.jpeg', 
+//     'travel_pics/travel4.jpeg',
+//     'travel_pics/travel5.jpeg', 
+//     'travel_pics/travel6.jpeg', 
+//     'travel_pics/travel7.jpeg', 
+//     'travel_pics/travel8.jpeg',
+//     'travel_pics/travel9.jpeg',
+//     'travel_pics/travel10.jpeg'
+// ]
   
   useEffect(() => {
     fetch("/posts")
@@ -12,15 +24,16 @@ function Home() {
   }, [])
 
   return (
-    <ImageList sx={{ width: 500, height: 450 }}>
+    <div>
+    <ImageList sx={{ width: 1000, height: 1000, backgroundColor: 'primary.dark'}}>
       <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
+        {/* <ListSubheader component="div"></ListSubheader> */}
       </ImageListItem>
       {posts.map((post) => (
         <ImageListItem key={post.image}>
           <img
             src={`${post.image}?w=248&fit=crop&auto=format`}
-            srcSet={`${post.image}?w=248&fit=crop&auto=format&dpr=2 2x`}
+            srcSet={`${post.image}?w=248&fit=crop&auto=format&dpr=2 1x`}
             alt={post.title}
             loading="lazy"
           />
@@ -39,6 +52,7 @@ function Home() {
         </ImageListItem>
       ))}
     </ImageList>
+    </div>
         
   )
 }
