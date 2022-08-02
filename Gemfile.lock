@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: efc6a90d845a25a34ddbcc9280ed951ecd346163
+  branch: master
+  specs:
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
+
+GIT
   remote: https://github.com/jpawlyn/active_model_serializers.git
   revision: c91c7892dc175e65f09f789c33bdf51bf9dc7508
   branch: 0-10-stable
@@ -193,6 +201,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap
   debug
+  faker!
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)

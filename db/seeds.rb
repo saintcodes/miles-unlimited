@@ -6,4 +6,18 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-u1 = User.create("username": "saint3", "password": "Apple12!")
+# u1 = User.create("username": "saint3", "password": "Apple12!")
+# u2 = User.create("username": "delvinDandy", "password": "McDandy12@")
+# u3 = User.create("username": "travelgypsy", "password": "boEing56$")
+# u4 = User.create("username": "helenhover", "password": "blashmerfA%")
+# u5 = User.create("username": "glendaglampin" "password": "iSeeSwag2*")
+require 'faker' 
+
+10.times do
+User.create(username:Faker::Name.unique.first_name, password: "iSeeSwag2*")
+end 
+
+10.times do 
+    Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user: User.find(User.pluck(:id).sample))
+end
+
