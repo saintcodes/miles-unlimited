@@ -52,7 +52,6 @@ function UserProfile({user, setUser}) {
   }
   return (
     <div className="formTitleLink5">
-      {/* <h1>{console.log(user)}</h1> */}
       <h1>{user.username}</h1>
       <Box
           component="form"

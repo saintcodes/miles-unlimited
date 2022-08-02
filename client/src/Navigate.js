@@ -27,8 +27,8 @@ function Navigate({user, setUser}) {
               Welcome back, {user.username}!
             </span> 
           <br></br>
-          <Nav.Link href="/all">
-            DESTINATIONS
+          <Nav.Link href="/home">
+            HOME
           {/* additional functionality by continent/region via drop down menu */}
           </Nav.Link>
           <br/>

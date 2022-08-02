@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import './App.css'
 import Login from './Login'
 import Navigate from './Navigate'
@@ -27,7 +27,6 @@ function App() {
   console.log("user:", user)
 
   return (
-    // <BrowserRouter>
       <div className="login">
       <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
         {user && user.username ?
@@ -79,10 +78,9 @@ function App() {
             />
           </Route>
         </Switch>
-      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg" />
+      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
       <br></br>
       </div>
-      // {/* </BrowserRouter> */}
   );
 }
 
