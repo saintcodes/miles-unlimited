@@ -85,7 +85,7 @@ function App() {
           </Route>
         </Switch>
         <video id="backround-video"  autoPlay loop muted>
-      <source src='./vid_loop/beach.mp4' type="video/mp4"/>
+      <source src='https://cdn.videvo.net/videvo_files/video/free/2021-04/large_watermarked/210329_01B_Bali_1080p_027_preview.mp4' type="video/mp4"/>
      </video>
       {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
       <br></br>
