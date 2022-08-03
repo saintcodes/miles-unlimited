@@ -9,6 +9,7 @@ import UserProfile from './UserProfile'
 import Home from './Home'
 import SignUp from './SignUp'
 
+
 function App() {
   const [user, setUser] = useState({});
 
@@ -27,10 +28,12 @@ function App() {
   console.log("user:", user)
 
   return (
+    
       <div className="login">
-      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
+     
+      {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
         {user && user.username ?
-          <Navigate
+          <Navigate 
             user={user} 
             setUser={setUser}
           /> : <></>
@@ -72,13 +75,16 @@ function App() {
             />
           </Route>
           <Route exact path="/">
-            <Login 
+            <Login  
               onLogin={handleLogIn}
               
             />
           </Route>
         </Switch>
-      <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/>
+        <video id="backround-video"  autoPlay loop muted>
+      <source src='./vid_loop/beach.mp4' type="video/mp4"/>
+     </video>
+      {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
       <br></br>
       </div>
   );
