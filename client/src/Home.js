@@ -41,21 +41,20 @@ function Home({user}) {
   return (
     <div>
       <ImageList 
-      sx={{ 
-        width: 1600, 
-        height: 1200, 
-        position: "relative", 
-        top: 200,
-        left: 100,
-        backgroundColor: 'primary.dark',
-        '&:hover': {
-          color: 'red',
-          backgroundColor: 'white'
-        }
-      }} cols={4}>
-        <ImageListItem key="Subheader">
-          {/* <ListSubheader component="div"></ListSubheader> */}
-        </ImageListItem>
+        sx={{ 
+          width: 1600, 
+          height: 1200, 
+          position: "relative", 
+          top: 200,
+          left: 100,
+          backgroundColor: 'primary.dark',
+          '&:hover': {
+            color: 'red',
+            backgroundColor: 'white'
+          }
+        }} 
+        cols={4}
+      >
         {posts.map((post) => (
           <ImageListItem
             onClick={handleOpen}
@@ -74,9 +73,11 @@ function Home({user}) {
             subtitle={post.content}
             sx={{height: 125}}
           />
+      {handleOpen ? <Entry post={post} open={open} setOpen={setOpen}/> : <></>}
           </ImageListItem>
         ))}
       </ImageList>
+
       {/* <Modal
         open={open}
         onClose={handleClose}
@@ -92,7 +93,6 @@ function Home({user}) {
           </Typography>
         </Box>
       </Modal> */}
-      <Entry open={open} setOpen={setOpen}/>
     </div>
   )
 }
