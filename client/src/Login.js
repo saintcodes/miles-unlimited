@@ -44,9 +44,9 @@ function Login({onLogin}) {
   }
 
   return (
-    <div>
-      <div className="formTitleLink3" style={{backgroundColor: 'white', opacity: 0.9}}>
-      <h1>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+      <div className="formTitleLink3">
+      <h1 id='brand-logo-login'>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </h1>
         <Box
@@ -84,16 +84,16 @@ function Login({onLogin}) {
           <Button type="submit" variant="contained">Sign In</Button> <br></br>
         <div>
             <br></br>
-          Need a Miles Unlimited account?&nbsp;
+           Don't have an account?&nbsp;
           <a href="/sign-up">
-            Create one here
+            Sign up
           </a>
           <br></br>
           <br></br>
         </div>
        </Box>
       </div>
-    </div>
+    
   );
 }
 

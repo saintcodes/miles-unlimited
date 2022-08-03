@@ -19,33 +19,35 @@ function Navigate({user, setUser}) {
   }
 
   return (
-    <Container className="navigation-container">
+     <Container className="navigation-container">
+      
       {user && (
         <Nav id='nav-bar'>
+          <h3 className='logo-header'>Miles Unlimited</h3>
           <br></br>
-            <span>
+            <span className='user-span'>
               Welcome back, <strong><em>{user.username}!</em></strong>
             </span> 
           <br></br>
           <ul><Nav.Link href="/home">
-            HOME
+            Home
           {/* additional functionality by continent/region via drop down menu */}
           </Nav.Link></ul>
           <br/>
           <ul><Nav.Link href="/about">
-            ABOUT
+            About
           </Nav.Link></ul>
           <br/>
           <ul><Nav.Link href="/new">
-            NEW ENTRY
+            New Entry
           </Nav.Link></ul>
           <br/>
           <ul><Nav.Link href="/my-profile">
-            PROFILE
+            Profile
           </Nav.Link></ul>
           <br/>
           <ul><Nav.Link href="/" onClick={handleLogout}>
-            LOGOUT
+            Logout
           </Nav.Link></ul>
         </Nav>
       )}
