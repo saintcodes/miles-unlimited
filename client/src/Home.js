@@ -1,59 +1,99 @@
 import React, { useEffect, useState } from 'react'
-import { ImageList, ImageListItem, ImageListItemBar, ListSubheader, IconButton } from '@mui/material'
-// import { InfoIcon } from '@mui/icons-material'
+import { Box, Button, Typography, Modal, ImageList, ImageListItem, ImageListItemBar, ListSubheader, IconButton } from '@mui/material'
+import {useHistory} from 'react-router-dom'
+import Entry from './Entry'
 
-function Home() {
+function Home({user}) {
   const [posts, setPosts] = useState([])
-//   const images = [
-//     'travel_pics/travel1.jpeg', 
-//     'travel_pics/travel2.jpeg', 
-//     'travel_pics/travel3.jpeg', 
-//     'travel_pics/travel4.jpeg',
-//     'travel_pics/travel5.jpeg', 
-//     'travel_pics/travel6.jpeg', 
-//     'travel_pics/travel7.jpeg', 
-//     'travel_pics/travel8.jpeg',
-//     'travel_pics/travel9.jpeg',
-//     'travel_pics/travel10.jpeg'
-// ]
-  
+  const history = useHistory()
+  // const [post, setPost] = useState({})
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+
+  // const style = {
+  //   position: 'absolute',
+  //   top: '50%',
+  //   left: '50%',
+  //   transform: 'translate(-50%, -50%)',
+  //   width: 400,
+  //   bgcolor: 'background.paper',
+  //   border: '2px solid #000',
+  //   boxShadow: 24,
+  //   p: 4,
+  // };
+
   useEffect(() => {
     fetch("/posts")
       .then((res) => res.json())
       .then((posts) => setPosts(posts))
   }, [])
 
+  // const routeChange = (e) => {
+  //   let postId = parseInt(e.target.alt)
+  //   console.log(typeof(postId))
+    
+  //   // fetch(`/posts/${postId}`, {
+      
+  //   // })
+  //   history.push(`entry/${postId}`)
+  // }
+  
   return (
     <div>
-    <ImageList sx={{ width: 1000, height: 1000, backgroundColor: 'primary.dark'}}>
-      <ImageListItem key="Subheader" cols={2}>
-        {/* <ListSubheader component="div"></ListSubheader> */}
-      </ImageListItem>
-      {posts.map((post) => (
-        <ImageListItem key={post.image}>
-          <img
-            src={`${post.image}?w=248&fit=crop&auto=format`}
-            srcSet={`${post.image}?w=248&fit=crop&auto=format&dpr=2 1x`}
-            alt={post.title}
-            loading="lazy"
-          />
+      <ImageList 
+      sx={{ 
+        width: 1600, 
+        height: 1200, 
+        position: "relative", 
+        top: 200,
+        left: 100,
+        backgroundColor: 'primary.dark',
+        '&:hover': {
+          color: 'red',
+          backgroundColor: 'white'
+        }
+      }} cols={4}>
+        <ImageListItem key="Subheader">
+          {/* <ListSubheader component="div"></ListSubheader> */}
+        </ImageListItem>
+        {posts.map((post) => (
+          <ImageListItem
+            onClick={handleOpen}
+            key={post.id}
+            sx={{'&:hover': {color: 'red', backgroundColor: 'white'}}}  
+          >
+            <img
+              src={`${post.image}?w=248&fit=crop&auto=format`}
+              srcSet={`${post.image}?w=248&fit=crop&auto=format&dpr=2 1x`}
+              alt={post.id}
+              value={post.user_id}
+              loading="lazy"
+            />
           <ImageListItemBar
             title={post.title}
             subtitle={post.content}
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${post.title}`}
-              >
-                {/* <InfoIcon /> */}
-              </IconButton>
-            }
+            sx={{height: 125}}
           />
-        </ImageListItem>
-      ))}
-    </ImageList>
+          </ImageListItem>
+        ))}
+      </ImageList>
+      {/* <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            {post.content}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal> */}
+      <Entry open={open} setOpen={setOpen}/>
     </div>
-        
   )
 }
 
