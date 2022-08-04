@@ -8,8 +8,6 @@ import NewEntry from './NewEntry'
 import UserProfile from './UserProfile'
 import Home from './Home'
 import SignUp from './SignUp'
-import Entry from './Entry'
-
 
 function App() {
   const [user, setUser] = useState({});
@@ -25,8 +23,6 @@ function App() {
   const handleLogIn = (user) => {
     setUser(user);
   }
-  
-  console.log("user:", user)
 
   return (
     
@@ -70,13 +66,6 @@ function App() {
 
             />
           </Route>
-          <Route exact path="/entry/:id">
-            <Entry 
-              // id={id}
-              user={user}
-
-            />
-          </Route>
           <Route exact path="/">
             <Login  
               onLogin={handleLogIn}
@@ -85,7 +74,7 @@ function App() {
           </Route>
         </Switch>
         <video id="backround-video"  autoPlay loop muted>
-      <source src='./vid_loop/beach.mp4' type="video/mp4"/>
+      {/* <source src='./vid_loop/beach.mp4' type="video/mp4"/> */}
      </video>
       {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
       <br></br>
