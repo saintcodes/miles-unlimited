@@ -1,10 +1,13 @@
 import React, {useState} from 'react'
 import { Modal, Box, Typography, Header, MainFeaturedPost, Grid, Main, Sidebar, Container } from '@mui/material'
 
-function Entry({id, open, setOpen}) {
-  const [post, setPost] = useState({})
+function Entry({post, open, setOpen}) {
+  // const [post, setPost] = useState({})
   const handleClose = () => setOpen(false);
-
+  const [selectedPost, setSelectedPost] = useState("")
+console.log("hi")
+  // setSelectedPost(post)
+  // console.log(post)
   // fetch(`/posts/${id}`)
   //   .then((res) => res.json())
   //   .then((post) => setPost(post))
@@ -23,6 +26,7 @@ function Entry({id, open, setOpen}) {
   
     return (
       <Modal
+        // id={id}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -33,6 +37,7 @@ function Entry({id, open, setOpen}) {
             {post.content}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            {post.content}
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </Typography>
         </Box>

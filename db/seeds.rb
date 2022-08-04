@@ -3,7 +3,7 @@
 
 u1 = User.create("username": "saint1", "password": "Apple12!")
 u2 = User.create("username": "saint2", "password": "Apple12!")
-u3 = User.create("username": "saint3", "password": "Apple12!")
+u3 = User.create("username": "saint3", "password": "Apple12!", "image": "https://media.istockphoto.com/videos/portrait-of-handsome-latino-african-man-video-id1008458450?s=640x640")
 u4 = User.create("username": "saint4", "password": "Apple12!")
 u5 = User.create("username": "saint5", "password": "Apple12!")
 u6 = User.create("username": "saint6", "password": "Apple12!")
