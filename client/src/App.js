@@ -8,6 +8,7 @@ import NewEntry from './NewEntry'
 import UserProfile from './UserProfile'
 import Home from './Home'
 import SignUp from './SignUp'
+import Entry from './Entry'
 
 
 function App() {
@@ -30,7 +31,6 @@ function App() {
   return (
     
       <div className="login">
-     
       {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
         {user && user.username ?
           <Navigate 
@@ -49,28 +49,31 @@ function App() {
           <Route exact path="/about">
             <About 
               user={user}
-              setUser={setUser}
+              
+            />
+          </Route>
+          <Route exact path="/my-profile">
+            <UserProfile 
+              user={user}
               
             />
           </Route>
           <Route exact path="/new">
             <NewEntry 
               user={user}
-              setUser={setUser}
 
-            />
-          </Route>
-          <Route exact path="/my-profile">
-            <UserProfile 
-              user={user}
-              setUser={setUser}
-              
             />
           </Route>
           <Route exact path="/home">
             <Home 
               user={user}
-              setUser={setUser}
+
+            />
+          </Route>
+          <Route exact path="/entry/:id">
+            <Entry 
+              // id={id}
+              user={user}
 
             />
           </Route>

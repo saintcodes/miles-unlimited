@@ -79,7 +79,7 @@ function Login({onLogin}) {
               <div key={err}>{err}</div>
             ))}
           </div>
-            <br></br>
+            {/* <br></br> */}
           <Button type="submit" variant="contained">Sign In</Button> <br></br>
         <div>
             <br></br>
@@ -87,8 +87,8 @@ function Login({onLogin}) {
           <a href="/sign-up">
             Sign up
           </a>
-          <br></br>
-          <br></br>
+          {/* <br></br>
+          <br></br> */}
         </div>
        </Box>
       </div>

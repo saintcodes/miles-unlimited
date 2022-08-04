@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NewEntry() {
+function NewEntry({user}) {
   return (
     <div>
       Create a new post!

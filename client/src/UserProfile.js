@@ -3,7 +3,7 @@ import { Box } from '@mui/system'
 import { Button, TextField } from '@mui/material'
 
 
-function UserProfile({user, setUser}) {
+function UserProfile({user}) {
   
   console.log(user)
   // const [canvasState, setCavnasState] = useState()
