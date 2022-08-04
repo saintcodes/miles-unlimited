@@ -51,13 +51,16 @@
   font-family: "Roboto", sans-serif;
   font-size: 1em;
   background-color: white;
-  opacity: 0.77;
+  opacity: 0.8;
   border: thin;
   border: 6px;
   padding: 8px 13px;
   display: inline-block;
   margin: 0 50px;
   padding-bottom: 1px;
+  width: 30%;
+  text-align: center;
+  height: 375px;
 
 }
 
@@ -142,6 +145,9 @@ video {
 
 .login {
   width: 100%;
+  padding-top: 10%;
+  padding-left: 30%;
+  align-items: center;
 
 }
 
@@ -151,9 +157,9 @@ video {
 }
 
 #brand-logo-login {
+  
   font-family: 'Square Peg', cursive;
-  font-size: 255%;
-  padding-left: .5em;
+  font-size: 40px;
 
 }
 
