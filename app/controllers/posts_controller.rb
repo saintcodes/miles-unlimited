@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authorize, only: [:create]
 
   def index
     post = Post.all
@@ -16,6 +17,11 @@ class PostsController < ApplicationController
     render json: post.to_json(include: [:user]), status: :accepted
   end
   
+  def create
+    post = Post.create!(post_params)
+    render json: post, status: :created
+  end
+
   def destroy
     post = Post.find(params[:id])
     post.destroy
@@ -25,7 +31,7 @@ class PostsController < ApplicationController
 private
 
 def post_params
-  params.permit(:title, :content, :image)
+  params.permit(:title, :content, :image, :user_id)
 end
 
 
