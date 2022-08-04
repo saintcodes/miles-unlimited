@@ -46,8 +46,7 @@ function Login({onLogin}) {
   return (
     
       <div className="formTitleLink3">
-      <h1 id='brand-logo-login'>Miles Unlimited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <h1 id='brand-logo-login'>Miles Unlimited
       </h1>
         <Box
           component="form"
