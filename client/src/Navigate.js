@@ -13,11 +13,12 @@ function Navigate({user, setUser}) {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUser(null);
+        setUser(() => "");
         history.push("/");
       }
     });
   }
+console.log(user)
 
   return (
      <Container className="navigation-container">

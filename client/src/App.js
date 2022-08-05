@@ -24,9 +24,9 @@ function App() {
     setUser(user);
   }
 
+  console.log(user, user.username)
   return (
-    
-      <div className="login">
+      <div>
       {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
         {user && user.username ?
           <Navigate 

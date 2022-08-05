@@ -144,7 +144,7 @@ function Home({user}) {
           width: 1600, 
           height: 1200, 
           position: "absolute", 
-          top: 100,
+          top: 60,
           left: 100,
           backgroundColor: 'primary.dark',
           '&:hover': {
