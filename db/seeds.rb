@@ -40,3 +40,8 @@ Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact,
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u8.id, image: 'travel_pics/travel8.jpeg')
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u9.id, image: 'travel_pics/travel9.jpeg')
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u10.id, image: 'travel_pics/travel10.jpeg')
+
+Comment.create(comment: "What's this", post_id: 3)
+Comment.create(comment: "Fake Comments", post_id: 3)
+Comment.create(comment: "everywhere", post_id: 3)
+Comment.create(comment: "why am i still here?", post_id: 3)

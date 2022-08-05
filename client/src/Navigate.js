@@ -11,28 +11,26 @@ function Navigate({user, setUser}) {
   const history = useHistory()
 
   function handleLogout() {
-    console.log('hello')
     fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUser(() => "");
-        history.push("/");
+        setUser(null);
       }
-    });
+    })
+    .then(history.push("/"));
   }
 console.log(user)
 
   return (
      <Container className="navigation-container">
-      
-      {user && (
+      {user && user.username ? (
         <Nav id='nav-bar'>
           <h3 className='logo-header'>Miles Unlimited</h3>
           <div id='ss-logos'>
           <FaFacebook className='logo' />
           <FaTwitter className='logo'/>
-          <FaInstagram />
+          <FaInstagram className='logo'/>
           </div>
           <br></br>
             <span className='user-span'>
@@ -43,7 +41,6 @@ console.log(user)
           <br></br>
           <ul><Nav.Link href="/home">
             Home
-          {/* additional functionality by continent/region via drop down menu */}
           </Nav.Link></ul>
           <br/>
           <ul><Nav.Link href="/about">
@@ -58,11 +55,11 @@ console.log(user)
             Profile
           </Nav.Link></ul>
           <br/>
-          <ul><Nav.Link href="/" onClick={handleLogout}>
+          <ul><Nav.Link href="/" onClick={() => handleLogout()}>
             Logout
           </Nav.Link></ul>
         </Nav>
-      )}
+      ): null}
      </Container>
   )
 }

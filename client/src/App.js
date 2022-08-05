@@ -12,6 +12,8 @@ import SignUp from './SignUp'
 function App() {
   const [user, setUser] = useState({});
 
+  console.log(user, user.username)
+
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -20,14 +22,14 @@ function App() {
     });
   }, []);
 
+  console.log(user.username)
   const handleLogIn = (user) => {
     setUser(user);
   }
 
-  console.log(user, user.username)
+  console.log(user.username)
   return (
       <div>
-      {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
         {user && user.username ?
           <Navigate 
             user={user} 
@@ -37,7 +39,7 @@ function App() {
         <Switch>
           <Route exact path="/sign-up">
             <SignUp 
-              onLogin={handleLogIn}
+              onLogin={() => handleLogIn}
               user={user}
               
             />
@@ -51,7 +53,7 @@ function App() {
           <Route exact path="/my-profile">
             <UserProfile 
               user={user}
-              
+              setUser={setUser}
             />
           </Route>
           <Route exact path="/new">
@@ -74,8 +76,6 @@ function App() {
           </Route>
         </Switch>
 
-      {/* <img alt="travel" src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/06/shutterstock_102245596.jpg"/> */}
-      <br></br>
       </div>
   );
 }
