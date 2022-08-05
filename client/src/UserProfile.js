@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/system'
-import { Button, TextField } from '@mui/material'
+import { Button, TextField, Avatar } from '@mui/material'
 
 
 function UserProfile({user}) {
@@ -46,34 +46,32 @@ function UserProfile({user}) {
     // });
   }
 
-  const handleUsernameUpdate = (e) => {
+  const handleUserImageUpdate = (e) => {
     e.preventDefault()
     console.log(e)
   }
+
   return (
     <div className="formTitleLink5">
-      <h1>{user.username}</h1>
+      <h1 className='user-'>{user.username}</h1>
+      <Avatar alt={user.username} src={user.image} /> 
       <Box
           component="form"
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
           noValidate
           autoComplete="off"
-          onSubmit={handleUsernameUpdate}
+          onSubmit={handleUserImageUpdate}
         >
           <TextField 
-            name="username" 
-            label="Username" 
-            variant="filled" 
-            value={formData.username} 
+            name="image" 
+            label="Image" 
+            variant="standard" 
+            value={formData.image} 
             onChange={handleChange} 
-            required
           />
             <br></br>
             <br></br>
-          <Button color="error" type="submit" variant="outlined">Change Username</Button> 
-            <br></br>
-            <br></br>
-            <br></br>
+          <Button color="primary" type="submit" variant="outlined">Update Photo</Button>
        </Box>
     </div>
   )

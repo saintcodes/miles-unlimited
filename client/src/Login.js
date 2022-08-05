@@ -22,7 +22,6 @@ function Login({onLogin}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
     fetch("/login", {
       method: "POST",
       headers: {
