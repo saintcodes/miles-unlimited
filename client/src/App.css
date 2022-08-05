@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Square+Peg&display=swap');
 
 
 .App {
@@ -52,15 +53,16 @@
   font-size: 1em;
   background-color: white;
   opacity: 0.8;
-  border: thin;
-  border: 6px;
-  padding: 8px 13px;
+  margin-left: 35%;
+  margin-top: 16%;
   display: inline-block;
-  margin: 0 50px;
-  padding-bottom: 1px;
+  padding-bottom: 0%;
   width: 30%;
   text-align: center;
   height: 375px;
+  position:absolute;
+  
+  
 
 }
 
@@ -106,8 +108,7 @@
 
 #nav-bar {
   width: 100%;
-  font-size: 100%;
-  display: flex;
+  display:flex;
   align-items: center;
   background-color: #ffffff;
   position: fixed;
@@ -129,10 +130,11 @@ ul {
 h3.logo-header {
   font-family: 'Square Peg', cursive;
   font-size: xx-large;
+  /* margin-left: 1%; */
 
 }
 
-video {
+#background-video {
   width: 100vw;
   height: 100vh;
   z-index: -1;
@@ -143,43 +145,76 @@ video {
 
 }
 
-.login {
-  width: 100%;
-  padding-top: 10%;
-  padding-left: 30%;
-  align-items: center;
-
-}
 
 .navigation-container {
-  padding-top: 15%;
+  padding-bottom: 0%;
+  
 
 }
 
 #brand-logo-login {
-  
+
   font-family: 'Square Peg', cursive;
   font-size: 40px;
 
 }
 
-.vimeo-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
+
+.about-description {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 850;
+  width: 100%;
+  height: 100vh;
+}
+
+#about-video {
   width: 100%;
   height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  overflow: hidden;
-}
-.vimeo-wrapper iframe {
-  width: 100vw;
-  height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
-  min-height: 100vh;
-  min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+  opacity: .96;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: -2;
+  top: 0;
+  object-fit: cover;
+}
+
+.about-text{
+  position: absolute;
+  bottom: 0;
+  height: 40%;
+  width: 50%;
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+.mission-div {
+ 
+  height: 30px;
+  text-align: center;
+  margin-left: 25%; 
+  margin-right: 25%;
+  position: absolute;
+  /* width: 50%; */
+  font-size: 16px;
+  line-height: 35px;
+  font-weight: 850;
+  padding-bottom: 20%;
+  padding-top: 10%
+}
+
+.logo{
+  padding-left: 5px;
+  
+}
+
+#ss-logos{
+margin-left: 25px;
+}
+
+a.nav-link{
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-size: smaller;
+
 }

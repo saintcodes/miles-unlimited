@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
 import {Avatar} from '@mui/material'
+import {FaFacebook} from 'react-icons/fa';
+import {FaTwitter} from 'react-icons/fa'
+import {FaInstagram} from 'react-icons/fa'
 
 function Navigate({user, setUser}) {
   const history = useHistory()
@@ -25,6 +28,11 @@ function Navigate({user, setUser}) {
       {user && (
         <Nav id='nav-bar'>
           <h3 className='logo-header'>Miles Unlimited</h3>
+          <div id='ss-logos'>
+          <FaFacebook className='logo' />
+          <FaTwitter className='logo'/>
+          <FaInstagram />
+          </div>
           <br></br>
             <span className='user-span'>
               Welcome back, <strong><em>{user.username}!</em></strong>

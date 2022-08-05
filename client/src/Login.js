@@ -44,8 +44,15 @@ function Login({onLogin}) {
   }
 
   return (
-    
-      <div className="formTitleLink3">
+
+      <div>
+              <div>
+           <video id="background-video"  autoPlay loop muted>
+          <source src='https://cdn.videvo.net/videvo_files/video/free/2021-04/large_watermarked/210329_01B_Bali_1080p_027_preview.mp4' type="video/mp4"/>
+          </video>
+         </div>
+
+        <div className='formTitleLink3' >
       <h1 id='brand-logo-login'>Miles Unlimited
       </h1>
         <Box
@@ -79,7 +86,7 @@ function Login({onLogin}) {
               <div key={err}>{err}</div>
             ))}
           </div>
-            {/* <br></br> */}
+            <br></br>
           <Button type="submit" variant="contained">Sign In</Button> <br></br>
         <div>
             <br></br>
@@ -87,10 +94,11 @@ function Login({onLogin}) {
           <a href="/sign-up">
             Sign up
           </a>
-          {/* <br></br>
-          <br></br> */}
+          <br></br>
+          <br></br>
         </div>
        </Box>
+      </div>
       </div>
     
   );
