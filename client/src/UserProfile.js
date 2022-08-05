@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Box } from '@mui/system'
-import { Button, TextField, Avatar } from '@mui/material'
+import { Button, TextField } from '@mui/material'
+import { useHistory } from 'react-router'
 
-
-function UserProfile({user}) {
-  
-  console.log(user)
-  // const [canvasState, setCavnasState] = useState()
+function UserProfile({setUser, user}) {
+  const history = useHistory()
+  const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
-    username: user.username,
-    password: user.password
+    image: "",
+    bio: user.bio
   });
 
   // console.log("user line 13", user)
@@ -24,54 +23,85 @@ function UserProfile({user}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData)
-    // fetch("/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData),
-    // }).then((r) => {
-    //   if (r.ok) {
-    //     r.json().then((user) => onLogin(user));
-    //     // setIsLoggedIn((isLoggedIn) => !isLoggedIn);
-    //     history.push("/home")
-    //   } else {
-    //     r.json().then((err) => setErrors(err.errors));
-    //   }
-    // })
-    // setFormData({
-    //   username: "",
-    //   password: "",
-    // });
+    console.log(formData, e.target.id)
+    fetch(`/users/${e.target.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({...formData,
+        password: user.password}),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+        history.push("/my-profile")
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    })
+    setFormData({
+      image: "",
+      bio: user.bio,
+    });
   }
 
-  const handleUserImageUpdate = (e) => {
-    e.preventDefault()
-    console.log(e)
-  }
+
 
   return (
-    <div className="formTitleLink5">
-      <h1 className='user-'>{user.username}</h1>
-      <Avatar alt={user.username} src={user.image} /> 
+    <div>
       <Box
           component="form"
-          sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
+          id={user.id}
+          onSubmit={handleSubmit}
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+            width: 800,
+            height: 800,
+            position: "absolute",
+            top: 120,
+            left: 100,
+          }}
           noValidate
           autoComplete="off"
-          onSubmit={handleUserImageUpdate}
         >
+          <h1>Update Image</h1>
+          <hr/>
           <TextField 
             name="image" 
-            label="Image" 
-            variant="standard" 
+            label="New Image URL" 
+            variant="standard"
+            size="large" 
             value={formData.image} 
             onChange={handleChange} 
           />
             <br></br>
             <br></br>
-          <Button color="primary" type="submit" variant="outlined">Update Photo</Button>
+            <br></br>
+            <br></br>
+            <h1>Update Bio</h1>
+            <hr/>
+  
+            <br></br>
+          <TextField 
+            fullwidth
+            id="fullWidth"
+            name="bio" 
+            multiline
+            rows={4}
+            sx={{
+              height: 100,
+              width: 100
+            }}
+            label="Edit bio" 
+            variant="standard" 
+            size="large"
+            value={formData.bio} 
+            onChange={handleChange} 
+          />
+            <br></br>
+            <br></br>
+            <br></br>
+          <Button color="primary" type="submit" variant="outlined">Update Changes</Button>
        </Box>
     </div>
   )
