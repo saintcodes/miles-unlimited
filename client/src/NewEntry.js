@@ -44,6 +44,7 @@ function NewEntry({user}) {
 
   return (
     <div>
+      <h1 style={{margin: 100}}>New Post</h1>
         <Box
           component="form"
           noValidate

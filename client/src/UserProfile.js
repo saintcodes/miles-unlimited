@@ -7,11 +7,10 @@ function UserProfile({setUser, user}) {
   const history = useHistory()
   const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
-    image: "",
+    image: user.image,
     bio: user.bio
   });
 
-  // console.log("user line 13", user)
   const handleChange = (e) => {
     console.log('hello')
     const {name, value} = e.target
@@ -23,17 +22,16 @@ function UserProfile({setUser, user}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData, e.target.id)
-    fetch(`/users/${e.target.id}`, {
+    let id = parseInt(e.target.id)
+    fetch(`/users/${id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({...formData,
-        password: user.password}),
+      body: JSON.stringify({formData}),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        // r.json().then((user) => setUser(user));
         history.push("/my-profile")
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -44,7 +42,6 @@ function UserProfile({setUser, user}) {
       bio: user.bio,
     });
   }
-
 
 
   return (

@@ -1,25 +1,24 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import Nav from 'react-bootstrap/Nav'
-import Container from 'react-bootstrap/Container'
+import { Nav, Container } from 'react-bootstrap'
 import {Avatar} from '@mui/material'
-import {FaFacebook} from 'react-icons/fa';
-import {FaTwitter} from 'react-icons/fa'
-import {FaInstagram} from 'react-icons/fa'
+import {FaFacebook, FaTwitter, FaInstagram} from 'react-icons/fa';
 
 function Navigate({user, setUser}) {
   const history = useHistory()
 
   function handleLogout() {
+    console.log('123')
     fetch("/logout", {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        setUser(null);
+        setUser(false);
       }
     })
     .then(history.push("/"));
   }
+  
 console.log(user)
 
   return (

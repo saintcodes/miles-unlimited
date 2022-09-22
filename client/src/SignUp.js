@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import  { Button, TextField} from '@mui/material'
 import { Box } from '@mui/system'
 
-function SignUp({user, onLogin}) {
+function SignUp({user, setUser, onLogin}) {
   const history = useHistory()
   const [signUpForm, setSignUpForm] = useState({
     username: "",
@@ -34,7 +34,7 @@ function SignUp({user, onLogin}) {
       body: JSON.stringify(signUpForm),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => setUser(user));
         // setIsLoggedIn((isLoggedIn) => !isLoggedIn);
         history.push("/home")
       } else {

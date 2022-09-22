@@ -12,8 +12,6 @@ import SignUp from './SignUp'
 function App() {
   const [user, setUser] = useState({});
 
-  console.log(user, user.username)
-
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -22,12 +20,12 @@ function App() {
     });
   }, []);
 
-  console.log(user.username)
-  const handleLogIn = (user) => {
-    setUser(user);
-  }
+  console.log(user)
 
-  console.log(user.username)
+  // const handleLogIn = (user) => {
+  //   setUser(user);
+  // }
+
   return (
       <div>
         {user && user.username ?
@@ -39,8 +37,8 @@ function App() {
         <Switch>
           <Route exact path="/sign-up">
             <SignUp 
-              onLogin={() => handleLogIn}
-              user={user}
+              // onLogin={() => handleLogIn}
+              setUser={setUser}
               
             />
           </Route>
@@ -70,8 +68,8 @@ function App() {
           </Route>
           <Route exact path="/">
             <Login  
-              onLogin={handleLogIn}
-              
+              // onLogin={handleLogIn}
+              setUser={setUser}
             />
           </Route>
         </Switch>

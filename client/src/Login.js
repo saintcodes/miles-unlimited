@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Button, TextField } from '@mui/material'
 import { Box } from '@mui/system';
 
-function Login({onLogin}) {
+function Login({onLogin, setUser}) {
   const history = useHistory()
   const [formData, setFormData] = useState({
     username: "",
@@ -30,7 +30,7 @@ function Login({onLogin}) {
       body: JSON.stringify(formData),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => setUser(user));
         history.push("/home")
       } else {
         r.json().then((err) => setErrors(err.errors));
