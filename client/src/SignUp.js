@@ -50,10 +50,10 @@ function SignUp({user, setUser, onLogin}) {
   return (
     <div>
       <div 
-        className="formTitleLink4" 
+        className="formTitleLink3" 
         style={{backgroundColor: 'smoke', opacity: 0.9}}
       >
-      <h1>Miles Unlimited</h1>
+      <h1 id='brand-logo-login'>Miles Unlimited</h1>
         <Box
           component="form"
           sx={{'& .MuiTextField-root': { m: 1, width: '25ch' },}}
