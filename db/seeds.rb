@@ -15,17 +15,6 @@ u10 = User.create("username": "saint10", "password": "Apple12!", "bio": "No bio 
 u11 = User.create("username": "saint11", "password": "Apple12!", "bio": "Nuck Chorris", "image": "https://images.pexels.com/photos/3536067/pexels-photo-3536067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
 
 
-# 10.times do
-# User.create(username:Faker::Name.unique.first_name, password: "iSeeSwag2*")
-# end 
-
-# 10.times do 
-#     Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user: User.find(User.pluck(:id).sample
-#     image: Faker::LoremFlickr.colorized_image(size: "50x60", color: 'red', search_terms: ['sports', 'fitness'], match_all: true)
-#     image: Faker::LoremFlickr.image(size: "50x60", search_terms: ['sports'])
-#     ))
-# end
-
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u1.id, image: 'travel_pics/travel1.jpeg')
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u2.id, image: 'travel_pics/travel2.jpeg')
 Post.create(title: Faker::Nation.capital_city, content: Faker::ChuckNorris.fact, user_id: u3.id, image: 'travel_pics/travel3.jpeg')
